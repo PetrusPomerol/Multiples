@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Multiples" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +23,95 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="chalkboard" translatesAutoresizingMaskIntoConstraints="NO" id="oMl-7Q-Pue" userLabel="BackgroundImg">
+                                <rect key="frame" x="13" y="-20" width="600" height="620"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MULTIPLES" translatesAutoresizingMaskIntoConstraints="NO" id="fw2-MB-zny" userLabel="Logo">
+                                <rect key="frame" x="132" y="41" width="313" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="313" id="I1S-Fn-xve"/>
+                                    <constraint firstAttribute="height" constant="72" id="hcI-qc-1mg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6I-q2-l1E" userLabel="PlayBtn">
+                                <rect key="frame" x="181" y="379" width="238" height="195"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="195" id="mUq-ed-ffS"/>
+                                    <constraint firstAttribute="width" constant="238" id="oaK-32-hFZ"/>
+                                </constraints>
+                                <state key="normal" image="play"/>
+                                <connections>
+                                    <action selector="onPlayBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="42Z-TD-jRq"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Press Add to add" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJ8-nI-C8y" userLabel="AddLbl">
+                                <rect key="frame" x="165" y="174" width="271" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="4sX-Ub-ezu"/>
+                                    <constraint firstAttribute="width" constant="271" id="RUJ-6X-Z7Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5s8-81-yG9" userLabel="AddBtn">
+                                <rect key="frame" x="195" y="473" width="211" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="211" id="Wkl-Ei-UFo"/>
+                                    <constraint firstAttribute="height" constant="101" id="bXP-sF-Zz2"/>
+                                </constraints>
+                                <state key="normal" image="add"/>
+                                <connections>
+                                    <action selector="addNumBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dZJ-Ow-xJu"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter an integer number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0pW-yd-3Bc" userLabel="AddTxt">
+                                <rect key="frame" x="165" y="275" width="271" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="HZi-1m-TpI"/>
+                                    <constraint firstAttribute="width" constant="271" id="jCr-7S-Zbw"/>
+                                </constraints>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5s8-81-yG9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="06k-SZ-74r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oMl-7Q-Pue" secondAttribute="trailing" constant="-20" id="2VL-Qr-tNc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5s8-81-yG9" secondAttribute="bottom" constant="37" id="2cJ-6g-GVb"/>
+                            <constraint firstItem="fw2-MB-zny" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="22" id="47r-nE-YSY"/>
+                            <constraint firstItem="0pW-yd-3Bc" firstAttribute="top" secondItem="fw2-MB-zny" secondAttribute="bottom" constant="162" id="5BP-mq-aeO"/>
+                            <constraint firstItem="0pW-yd-3Bc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9YF-7F-Ln1"/>
+                            <constraint firstItem="t6I-q2-l1E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I5c-Jz-mLv"/>
+                            <constraint firstItem="oMl-7Q-Pue" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="QFJ-QV-YD9"/>
+                            <constraint firstItem="0pW-yd-3Bc" firstAttribute="top" secondItem="TJ8-nI-C8y" secondAttribute="bottom" constant="34" id="Rb0-xc-zVT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="t6I-q2-l1E" secondAttribute="bottom" constant="26" id="f2O-w3-thF"/>
+                            <constraint firstItem="oMl-7Q-Pue" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="g3T-Qy-5JK"/>
+                            <constraint firstItem="TJ8-nI-C8y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hDC-4e-6tW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oMl-7Q-Pue" secondAttribute="bottom" id="hXu-I4-1MK"/>
+                            <constraint firstItem="fw2-MB-zny" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rzv-5s-MgU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AddBtn" destination="5s8-81-yG9" id="GmL-nm-So7"/>
+                        <outlet property="PressAddTxt" destination="TJ8-nI-C8y" id="wrd-I6-tNi"/>
+                        <outlet property="logoImg" destination="fw2-MB-zny" id="4bd-2q-rVK"/>
+                        <outlet property="playBtn" destination="t6I-q2-l1E" id="VFo-u8-Yqo"/>
+                        <outlet property="whatMultipleAddTxt" destination="0pW-yd-3Bc" id="1re-Gk-Plo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="291"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MULTIPLES" width="533" height="124"/>
+        <image name="add" width="211" height="101"/>
+        <image name="chalkboard" width="801" height="750"/>
+        <image name="play" width="272" height="268"/>
+    </resources>
 </document>
